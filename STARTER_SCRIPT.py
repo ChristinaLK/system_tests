@@ -154,9 +154,6 @@ queue 1""".format(job_tag,run_name,job_tag,job_tag,"Miniconda3-latest-Linux-x86_
             
 
             
-
-for i in submits:
-    subprocess.run(["condor_submit",i])
-    with open("SUBMITS.txt", "a") as myfile:
-        myfile.write(i+"\n")
-
+with open("A.dag") as myfile:
+    for i,n in enumerate(submits):
+        myfile.write("JOB "+n+" "+i+"\n")
